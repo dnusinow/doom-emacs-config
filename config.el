@@ -100,8 +100,11 @@ visited file then return the project directory"
 (setq ess-startup-directory-function 'ess---buffer-or-project-dir)
 
 
+(defvar erasciible-load-path
+  (concat (file-name-as-directory (getenv "HOME")) "src/erasciible-mode/"))
+
 (use-package erasciible-mode
-  :load-path "/Users/davidnusinow/src/erasciible-mode")
+  :load-path erasciible-load-path)
 
 (defun my-ess-hook ()
   (define-key ess-mode-map (kbd "M-/") 'dabbrev-expand)
@@ -198,7 +201,7 @@ visited file then return the project directory"
 
 ;; Python
 
-(setq python-shell-interpreter "ipython"
+(setq python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt --InteractiveShell.display_page=True")
 
 ;; Copilot
