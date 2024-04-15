@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "David Nusinow"
-      user-mail-address "dnusinow@interlinetx.com")
+      user-mail-address "david.nusinow@orionmedicines.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -111,8 +111,8 @@ visited file then return the project directory"
   (define-key ess-mode-map "\t" 'company-complete-common)
   (subword-mode)
   (company-mode)
-  (undo-tree-mode)
-  (copilot-mode -1))
+  (undo-tree-mode))
+  ;; (copilot-mode -1))
 
 (eval-after-load "ess-mode"
   '(add-hook 'ess-mode-hook 'my-ess-hook))
@@ -206,14 +206,14 @@ visited file then return the project directory"
 
 ;; Copilot
 ;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
-         ("C-<tab>" . 'copilot-accept-completion-by-word)
-         :map copilot-completion-map
-         ("<tab>" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion)))
-
+;; (use-package! copilot
+;;   :hook (prog-mode . copilot-mode)
+;;   :bind (("C-TAB" . 'copilot-accept-completion-by-word)
+;;          ("C-<tab>" . 'copilot-accept-completion-by-word)
+;;          :map copilot-completion-map
+;;          ("<tab>" . 'copilot-accept-completion)
+;;          ("TAB" . 'copilot-accept-completion)))
+;; 
 ;; Markup faces
 
 (use-package adoc-mode)
