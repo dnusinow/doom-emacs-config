@@ -103,8 +103,10 @@ visited file then return the project directory"
 (defvar erasciible-load-path
   (concat (file-name-as-directory (getenv "HOME")) "src/erasciible-mode/"))
 
-(use-package erasciible-mode
-  :load-path erasciible-load-path)
+(if (file-directory-p erasciible-load-path)
+    (use-package erasciible-mode
+      :load-path erasciible-load-path)
+  )
 
 (defun my-ess-hook ()
   (define-key ess-mode-map (kbd "M-/") 'dabbrev-expand)
